@@ -16,13 +16,7 @@ def skills_to_print(row):
     skills_list = ['python', 'java', 'c++', 'matlab', 'sas', 'database', 'software', 'calculus', 'statistics', 'machine learning', 'linear algebra']
     student_skills = [skill for skill in skills_list if row[skill] == '1']
     return ', '.join(student_skills)
-    '''if not student_skills:
-        return ''
-    elif len(student_skills) == 1:
-        return student_skills[0]
-    else:
-        return ', '.join(student_skills[:-1]) + ' and ' + student_skills[-1]'''
-
+    
 
 
 def PromptGenerator(row):
@@ -113,7 +107,7 @@ save_dest.mkdir(exist_ok=True)
 # Loop through dataframe and create files
 # print(students_info)
 
-OpenAI_API_KEY = "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"
+OpenAI_API_KEY = "Your API Key" #put your API key here
 openai.api_key = OpenAI_API_KEY
 model_id = 'gpt-3.5-turbo'
 
