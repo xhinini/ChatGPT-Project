@@ -116,18 +116,26 @@ for _, row in students_info.iterrows():
     Prompt = row["Prompt"]
     conversation = []
     conversation.append({"role": "system", "content": Prompt})
-    try:
-        '''add a try block to check empty letters'''
-        response = openai.ChatCompletion.create(
-            model=model_id,
-            messages=conversation)
-        
-        GeneratedSOI = response.choices[-1].message.content.lstrip().replace("\n\n","\n")
-        GeneratedSOIs.append(GeneratedSOI)
 
-        print(len(GeneratedSOIs))
-    except:
-        print('error')
+    while True:
+        try:
+            '''add a try block to check empty letters'''
+            response = openai.ChatCompletion.create(
+                model=model_id,
+                messages=conversation)
+
+            GeneratedSOI = response.choices[-1].message.content.lstrip().replace("\n\n","\n")
+            
+            if not GeneratedSOI.strip():  # Check if the response is empty
+                raise ValueError("Empty response received")
+                
+            GeneratedSOIs.append(GeneratedSOI)
+            print(len(GeneratedSOIs))
+            break  # If successful, exit the while loop and move to the next prompt
+
+        except Exception as e:
+            print(f'Error: {e}')
+            # If there's an error or empty response, the while loop will continue, prompting the API again
 
 #create GeneratedSOIs_new dataset
 students_info["AIGenerated"] = GeneratedSOIs
