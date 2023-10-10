@@ -95,7 +95,7 @@ save_dest.mkdir(exist_ok=True)
             f.write(content)'''
 
 #Generated LORs
-OpenAI_API_KEY = "Your API Key"
+OpenAI_API_KEY = "Your API Key" #Put your API key here
 openai.api_key = OpenAI_API_KEY
 model_id = 'gpt-3.5-turbo'
 
@@ -110,7 +110,7 @@ for _, row in lor_info.iterrows():
             '''add a try block to check empty letters'''
             response = openai.ChatCompletion.create(
                 model=model_id,
-                messages=conversation)
+                messages=conversation) #may need to upgrade openai to use ChatCompletion pip -U openai
 
             GeneratedLOR = response.choices[-1].message.content.lstrip().replace("\n\n","\n")
             
