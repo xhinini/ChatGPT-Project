@@ -38,7 +38,6 @@ def PromptGenerator(row):
 
     #
     Program = f"{program}" if not pd.isna(program) else ''
-    #do we need to consider applicants' race?
     if major or major == 'Null':
         Major = None
     Major = f"{major}" if not pd.isna(major) else ''
@@ -72,8 +71,7 @@ def PromptGenerator(row):
     else:
         return np.nan
 
-#students_info = pd.read_excel('/Users/a3552324/Desktop/project/merged-
-# data-without-TOEFL-final.xlsx')
+#students_info = pd.read_excel('/Users/a3552324/Desktop/project/merged-data-without-TOEFL-final.xlsx')
 students_info = pd.read_csv('/Users/a3552324/Desktop/merged_data_add_length_copy.csv')
 students_info.drop(['gre_verified_verbal', 'gre_verified_verbal_percentile','permanent_country','gre_verified_quantitative', 
 'gre_verified_quantitative_percentile', 'gre_verified_analytical_writing','gre_verified_analytical_writing_percentile', 'toefl_ibt_verified_total', 'toefl_ibt_verified_listening', 'toefl_ibt_verified_reading', 'toefl_ibt_verified_writing','toefl_ibt_verified_speaking','ielts_verified_overall_band_score','ielts_verified_listening','ielts_verified_reading','ielts_verified_writing','ielts_verified_speaking','merit_aid_yes_no'],inplace=True,axis=1)
