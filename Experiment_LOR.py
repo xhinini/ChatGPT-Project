@@ -13,8 +13,8 @@ def get_relationship(relationship, gender):
     
     if relationship == 'Academic':
         return f"{gender} is my student"
-    elif relationship == 'Work':
-        return f"{gender} is my employee"
+    elif relationship in ('Work', 'Industry'):
+        return f"{gender} is my employee/coworker"
     elif relationship == 'Friend':
         return f"{gender} is my friend"
     elif relationship in ['Other', 'Unknown']:
