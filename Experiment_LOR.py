@@ -52,11 +52,17 @@ lor_info["id"] = lor_info["id"]
 lor_info["PromptVersion"] = np.random.choice([1,2,3,4], size=len(lor_info))
 lor_info["FirstPromptWord"] = np.random.choice(["Imagine", "Assume", "Think","Let's say"], size=len(lor_info))
 lor_info["RelatedInterest"] = np.random.choice(["data science", "machine learning", "artificial intelligence", "statistics", "big data", "data visualization"], size=len(lor_info))
-lor_info["RelatedExperience"] = np.random.choice([ "academic", "work", "research"], size = len(lor_info))
-
+lor_info["RelatedExperience"] = np.random.choice([ "academic", "work", "industry","research"], size = len(lor_info))
+lor_info["length"] = np.random.randint(166, 624, size=len(lor_info))
 #get a real name for each applicant to make more flow
-boys_name = ["James", "John", "Robert", "Michael", "William", "David", "Richard", "Joseph", "Charles", "Thomas"]
-girls_name = ["Mary", "Jennifer", "Linda", "Patricia", "Elizabeth", "Susan", "Jessica", "Sarah", "Karen", "Nancy"]
+boys_name = ["Liam", "Hiroshi", "Miguel", "Luca", "Mohamed", "Rajesh", "Ivan", "Wei", "Carlos", "Jean", "Emil", "Aleksander", "Sebastian", "Johan", "Kai", "Aarav", "Oscar", "Yuki", "Diego", "Matteo",
+            "Youssef", "Vijay", "Dmitri", "Jun", "Joao", "Pierre", "Gustav", "Piotr", "Felix", "Bram", "Lono", "Dev", "George", "Haruto", "Francisco", "Giovanni", "Ahmed", "Amit", "Alexei", "Chen",
+            "Pedro", "Louis", "Erik", "Jakub", "Max", "Pieter", "Akoni", "Rohan", "Henry", "Daiki", "Alvaro", "Francesco", "Omar", "Sanjay", "Nikolai", "Feng", "Rafael", "Theo", "Lars", "Tomasz",
+            "Tobias", "Sven", "Keanu", "Arjun", "Jack", "Kaito", "Javier", "Antonio", "Sami", "Pranav", "Sergei", "Long", "Tiago", "Hugo", "Nils", "Marek", "Leon", "Thijs", "Mana", "Nikhil"]
+girls_name = ["Emma", "Yui", "Sofia", "Giulia", "Fatima", "Priya", "Anastasia", "Ling", "Ana", "Marie", "Elsa", "Zofia", "Emma", "Anna", "Leilani", "Aanya", "Olivia", "Haruka", "Lucia", "Chiara",
+            "Nour", "Anjali", "Ekaterina", "Mei", "Clara", "Camille", "Astrid", "Agnieszka", "Sophie", "Fleur", "Kailani", "Diya", "Charlotte", "Aiko", "Carmen", "Alessia", "Aisha", "Pooja", "Maria", "Yan",
+            "Beatriz", "Chloe", "Freja", "Magdalena", "Hannah", "Lotte", "Noelani", "Riya", "Mia", "Sakura", "Valentina", "Bianca", "Layla", "Radha", "Tatiana", "Qing", "Larissa", "Alice", "Ingrid", "Katarzyna",
+            "Lena", "Eva", "Malie", "Shreya", "Isabella", "Rin", "Natalia", "Serena", "Maha", "Sunita", "Olga", "Hui", "Mariana", "Amelie", "Greta", "Ewa", "Greta", "Sofie", "Nalani", "Tanvi"]
 def get_name(gender):
     if gender == 'Male':
         return np.random.choice(boys_name)
